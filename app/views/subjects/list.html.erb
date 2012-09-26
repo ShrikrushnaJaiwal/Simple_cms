@@ -1,4 +1,11 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice]%>
+</div>
+<% end %>
 <div class="subject list">
+
+<%=link_to("Add New Subject",{:action=>'new'},:class =>'action new')%>
     <h2>Subjects</h2>
 	<table class="listing" summary="Subject list">
 	<tr class="header">
@@ -15,9 +22,9 @@
 	  <td><%= subject.visible ? 'Yes' : 'No' %></td>
 	  <td><%= subject.pages.size %></td>
 	  <td class="actions">
-	      <%=link_to("Show",{:action => 'show',:id =>subject.id}) %>
-	      <%=link_to("Edit",'#')  %>
-	      <%=link_to("Delete",'#')  %>
+	      <%=link_to("Show",{:action => 'show',:id =>subject.id},:class => 'action show') %>
+	      <%=link_to("Edit",{:action => 'edit',:id =>subject.id},:class => 'action edit')  %>
+	      <%=link_to("Delete",{:action => 'delete',:id =>subject.id},:class => 'action delete') %>
 	  </td> 
 	</tr>
 	<% end %>
