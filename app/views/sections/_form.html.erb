@@ -1,0 +1,36 @@
+<table summary="Section Field Form">
+         <tr>
+            <th>PageID</th>
+            <td><%= f.text_field(:page_id) %></td>
+        </tr>
+ 
+  	<tr>
+  	    <th>Name</th>
+  	    <td><%= f.text_field(:name) %></td>
+  	</tr>
+  	
+  	<tr>
+  	    <th>Position</th>
+  	    <td><%= f.text_field(:position) %></td>
+  	</tr>
+  	
+  	<tr>
+  	    <th>Visible</th>
+  	    <td><%= f.check_box(:visible) %></td>
+  	</tr>
+        
+        <tr>
+           <th>Content Type</th>
+           <td>
+           <%= f.radio_button(:content_type,'HTML')%>HTML
+           <%= f.radio_button(:content_type,'TEXT') %>TEXT
+           </td>
+       </tr>
+        <tr>
+             <th>Content</th>
+             <td><%= f.text_area(:content,:size=>'40*10') %></td>
+    </tr>
+ 
+
+
+  	</table>

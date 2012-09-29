@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   # attr_accessible :title, :body
 #   attr_accessible :name,:position,:permalink,:visible
-    attr_accessible :position, :permalink, :name, :visible
+    attr_accessible :position, :permalink, :name, :visible,:subject_id
 
   belongs_to :subject
   has_many :sections

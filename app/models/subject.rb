@@ -1,6 +1,7 @@
 class Subject < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :name,:position,:visible
+
+  attr_accessible :name,:position,:visible,:created_at
   has_many :pages
   scope :visible, where(:visible =>true)
   scope :invisible, where(:visible =>false)
