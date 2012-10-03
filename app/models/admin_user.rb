@@ -4,9 +4,12 @@ class AdminUser < ActiveRecord::Base
 
   attr_accessible :first_name, :username, :last_name
 
+
   has_and_belongs_to_many :pages 
   has_many :section_edits
   has_many :sections, :through => :section_edits 
+  
+   attr_accessor :password
 
      
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
@@ -17,8 +20,13 @@ class AdminUser < ActiveRecord::Base
   validates :email, :presence => true, :length => { :maximum => 100 }, 
     :format => EMAIL_REGEX, :confirmation => true
  
-  
-  attr_protected :hashed_password, :salt 
+  scope :sorted, order("admin_users.first_name ASC")  
+
+  attr_protected :hashed_password, :salt
+    
+  def name
+      "#{first_name} #{last_name}"
+  end
   
   def self.authenticate(username="", password="")
     user = AdminUser.find_by_username(username)
