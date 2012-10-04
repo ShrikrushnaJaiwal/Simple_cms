@@ -25,7 +25,6 @@ end
 group :production, :test do
   gem 'activerecord-postgresql-adapter'
   gem 'pg'
-  gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this to
 end
 
 
