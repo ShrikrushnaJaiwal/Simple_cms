@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 gem 'mysql2'
 gem "dynamic_form"
 gem 'json'
+gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,6 +21,13 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+ 
+group :production, :test do
+  gem 'activerecord-postgresql-adapter'
+  gem 'pg'
+  gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this to
+end
+
 
 gem 'jquery-rails'
 
